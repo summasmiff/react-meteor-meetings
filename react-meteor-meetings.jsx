@@ -197,13 +197,8 @@ var Change = React.createClass({
 
   handleMoveForward: function(e) {
     e.preventDefault(e);
-    var reactID = e.dispatchMarker;
-    var dataAttribute = '[data-reactid="'.concat(reactID).concat('"]');
-    var arrowNode = $(dataAttribute);
     var changeID = this.props.changeObject._id;
-    arrowNode.fadeOut(500, function() {
-      Meteor.call('moveChangeForward', changeID);
-    });
+    Meteor.call('moveChangeForward', changeID);
   },
 
   render: function() {
